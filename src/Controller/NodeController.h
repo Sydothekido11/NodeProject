@@ -12,6 +12,7 @@ class NodeController
 {
 public:
 	NodeController();
+	virtual ~NodeController();
 	void start();
 };
 

@@ -5,6 +5,9 @@
  *      Author: snem8901
  */
 
+#include "NodeController.h"
+
+
 void NodeController :: start()
 {
 
