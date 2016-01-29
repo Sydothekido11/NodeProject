@@ -6,7 +6,6 @@
  */
 #include "Node.h"
 #include <iostream>
-
 template <class Type>
 Node<Type>::Node()
 {
@@ -40,7 +39,7 @@ void Node<Type> :: setValue(Type value)
 }
 
 template <class Type>
-Node * Node<Type> :: getPointers()
+Node<Type> * Node<Type> :: getPointers()
 {
 	return this->pointers;
 }
