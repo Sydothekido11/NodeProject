@@ -5,7 +5,7 @@
  *      Author: snem8901
  */
 #include "Node.h"
-#include <iostream>
+//#include <iostream>
 template <class Type>
 Node<Type>::Node()
 {
