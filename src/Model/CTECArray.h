@@ -8,10 +8,21 @@
 #ifndef MODEL_CTECARRAY_H_
 #define MODEL_CTECARRAY_H_
 
-class CTECArray {
+#include "ArrayNode.h"
+
+template <class Type>
+class CTECArray
+{
+private:
+	int size;
+	ArrayNode<Type> * head;
 public:
-	CTECArray();
+	CTECArray(int size);
 	virtual ~CTECArray();
+	int getSize();
+	void set(int position, Type value);
+	Type* get(int position);
+
 };
 
 #endif /* MODEL_CTECARRAY_H_ */

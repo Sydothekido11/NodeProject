@@ -6,13 +6,44 @@
  */
 
 #include "CTECArray.h"
+using namespace std;
 
-CTECArray::CTECArray() {
-	// TODO Auto-generated constructor stub
+template <class Type>
+CTECArray<Type>::CTECArray(int size)
+{
+	this->size = size;
+}
+
+template <class Type>
+Type* CTECArray<Type> :: get(int position)
+{
+	//We need to do bounds checking so we do not crash the program.
+	if(position >= size || position < 0)
+	{
+		cerr << "position value is out of bounds " << endl;
+		return nullptr;
+	}
+	else
+	{
+
+	}
+}
+
+template <class Type>
+int CTECArray<Type> :: getSize()
+{
+	return this->size;
+}
+
+template <class Type>
+void CTECArray<Type> :: set(int position, Type value)
+{
 
 }
 
-CTECArray::~CTECArray() {
-	// TODO Auto-generated destructor stub
+template <class Type>
+CTECArray<Type>::~CTECArray()
+{
+
 }
 
