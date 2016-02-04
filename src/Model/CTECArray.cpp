@@ -12,6 +12,14 @@ template <class Type>
 CTECArray<Type>::CTECArray(int size)
 {
 	this->size = size;
+	this->head = nullptr;
+
+	//Defensive
+	if(size <= 0)
+	{
+		cerr << "No!" << endl;
+		return;
+	}
 }
 
 template <class Type>
