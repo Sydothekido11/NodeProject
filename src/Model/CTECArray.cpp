@@ -20,6 +20,25 @@ CTECArray<Type>::CTECArray(int size)
 		cerr << "No!" << endl;
 		return;
 	}
+
+	for(int index = 0; index < size; index++)
+	{
+
+		if(head != nullptr)
+		{
+			//Regular ArrayNodes are being made.
+			ArrayNode<Type> nextNode;
+			nextNode.setNext(head);
+			this->head = &nextNode;
+		}
+		else
+		{
+			//The first ArrayNode needs to be made.
+			ArrayNode<Type> firstNode;
+			this->head = &firstNode;
+
+		}
+	}
 }
 
 template <class Type>
