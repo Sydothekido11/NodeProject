@@ -18,11 +18,8 @@ CTECArray<Type>::CTECArray(int size)
 	this->head = nullptr;
 
 	//Defensive
-	if(size <= 0)
-	{
-		cerr << "No!" << endl;
-		return;
-	}
+	assert(size > 0);
+
 
 	for(int index = 0; index < size; index++)
 	{
@@ -30,15 +27,15 @@ CTECArray<Type>::CTECArray(int size)
 		if(head != nullptr)
 		{
 			//Regular ArrayNodes are being made.
-			ArrayNode<Type> nextNode;
-			nextNode.setNext(head);
+			ArrayNode<Type> * nextNode = new ArrayNode<Type>();
+			nextNode->setNext(head);
 			this->head = &nextNode;
 		}
 		else
 		{
 			//The first ArrayNode needs to be made.
-			ArrayNode<Type> firstNode;
-			this->head = &firstNode;
+			ArrayNode<Type> * firstNode = new ArrayNode<Type>();
+			this->head = firstNode;
 
 		}
 	}
@@ -47,27 +44,20 @@ CTECArray<Type>::CTECArray(int size)
  * Creates a reminder when there is an out of bounds error.
  */
 template <class Type>
-Type* CTECArray<Type> :: get(int position)
+Type CTECArray<Type> :: get(int position)
 {
 	//We need to do bounds checking so we do not crash the program.
-	if(position >= size || position < 0)
+	assert(position < size && position >= 0);
+	ArrayNode<Type> * current = head;
+	for(int spot = 0; spot <= position; spot++)
 	{
-		cerr << "position value is out of bounds " << endl;
-		return nullptr;
-	}
-	else
-	{
-		ArrayNode<Type> * current = head;
-		for(int spot = 0; spot <= position; spot++)
+		if(spot != position)
 		{
-			if(spot != position)
-			{
-				current = current->next;
-			}
-			else
-			{
-				return current->getValue();
-			}
+			current = current->getNext();
+		}
+		else
+		{
+			return current->getValue();
 		}
 	}
 }
