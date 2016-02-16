@@ -14,6 +14,7 @@
 #include "../Model/Timer.h"
 #include <string>
 #include <iostream>
+#include "../Model/CTECArray.h"
 using namespace std;
 
 class NodeController

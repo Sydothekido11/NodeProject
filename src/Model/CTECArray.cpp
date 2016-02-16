@@ -74,26 +74,19 @@ int CTECArray<Type> :: getSize()
  * Finds the out of bounds error.
  */
 template <class Type>
-void CTECArray<Type> :: set(int position, Type value)
+void CTECArray<Type> :: set(int position, const Type& value)
 {
-	if(position >= size || position < 0)
+	assert(position < size && position >=0);
+	ArrayNode<Type> * current = head;
+	for(int spot = 0; spot <= position; spot++)
 	{
-		cerr << "position value is out of bounds " << endl;
-
-	}
-	else
-	{
-		ArrayNode<Type> * current = head;
-		for(int spot = 0; spot < position; spot++)
+		if(spot != position)
 		{
-			if(spot != position)
-			{
-				current = current->getNext();
-			}
-			else
-			{
-				current->setValue(value);
-			}
+			current = current->getNext();
+		}
+		else
+		{
+			current->setValue(value);
 		}
 	}
 }

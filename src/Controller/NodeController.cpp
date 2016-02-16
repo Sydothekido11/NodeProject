@@ -6,6 +6,8 @@
  */
 
 #include "NodeController.h"
+#include "../Model/Timer.h"
+
 
 
 NodeController::NodeController()
@@ -26,7 +28,7 @@ void NodeController :: start()
 		notHipsterInts->set(index, (23 * index));
 	}
 
-	for(int index = 0; index < notHipsterInts->getSize(); index++)
+	for(int index = notHipsterInts -> getSize() - 1; index >=0; index--)
 	{
 		cout << "notHipsterInts at index " << index << " contains " << notHipsterInts->get(index) << endl;
 	}
