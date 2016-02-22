@@ -10,7 +10,11 @@
 
 #include <iostream>
 template <class Type>
-
+class List
+{
+private:
+	size int;
+};
 
 
 
