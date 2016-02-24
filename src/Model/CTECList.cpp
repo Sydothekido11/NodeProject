@@ -24,16 +24,36 @@ CTECList<Type>::~CTECList()
 template<class Type>
 Type CTECList<Type>::removeFromFront()
 {
+	//Check that not removing from any empty list
+	assert(this->size > 0);
+	//Declare an variable of the type to return.
 	Type thingToRemove;
 	//Find the next spot.
 	ArrayNode<Type> * newHead = new ArrayNode<Type>();
 	newHead = head->getNext();
-	thingToRemove = his->head->getValue();
-	//Remove head
+	//Get what head is holding.
+	thingToRemove = this->head->getValue();
+	//Remove what head is pointing to.
 	delete head;
 	//Move head to next spot.
 	head = newHead;
 
 
 	return thingToRemove;
+}
+
+template<class Type>
+Type CTECList<Type>::removeFromIndex(int position)
+{
+	assert(index >= 0 < size);
+	assert(size > 0);
+	previous = head->getPrevious();
+	delete = this->head->deleteMe();
+	newHead = head->newNext();
+	ArrayNode<Type> * newNext = new ArrayNode<Type>();
+
+
+
+
+
 }
