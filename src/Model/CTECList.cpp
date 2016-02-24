@@ -24,11 +24,16 @@ CTECList<Type>::~CTECList()
 template<class Type>
 Type CTECList<Type>::removeFromFront()
 {
+	Type thingToRemove;
 	//Find the next spot.
 	ArrayNode<Type> * newHead = new ArrayNode<Type>();
 	newHead = head->getNext();
+	thingToRemove = his->head->getValue();
 	//Remove head
 	delete head;
 	//Move head to next spot.
 	head = newHead;
+
+
+	return thingToRemove;
 }
