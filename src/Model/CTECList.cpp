@@ -6,6 +6,7 @@
  */
 
 #include "CTECList.h"
+#include "assert.h"
 
 template<class Type>
 CTECList<Type>::CTECList()
@@ -25,7 +26,7 @@ template<class Type>
 Type CTECList<Type>::removeFromFront()
 {
 	//Check that not removing from any empty list
-	assert(this->size > 0);
+	assert(size > 0);
 	//Declare an variable of the type to return.
 	Type thingToRemove;
 	//Find the next spot.
@@ -43,17 +44,71 @@ Type CTECList<Type>::removeFromFront()
 }
 
 template<class Type>
-Type CTECList<Type>::removeFromIndex(int position)
+Type CTECList<Type>::removeFromPosition(int index)
 {
-	assert(index >= 0 < size);
+
+	assert(index >= 0);
+	assert(index < size);
+	assert(this->size>0);
+	Type storedValue;
+	ArrayNode<Type> * current = head;
+	ArrayNode<Type> * previousSpot;
+	ArrayNode<Type> * newNext;
+
+	for(int spot = 0; spot < index +1; spot++)
+	{
+		if(spot == index-1)
+		{
+			previousSpot = current;
+		}
+		if(spot == index)
+		{
+			storedValue = current->getValue();
+			newNext = current->getNext();
+			delete current;
+		}
+
+		current = current->getNext();
+	}
+
+	previousSpot->setNext(newNext);
+	return storedValue;
+
+
+}
+
+template<class Type>
+Type CTECList<Type>::removeFromBack()
+{
+
 	assert(size > 0);
-	previous = head->getPrevious();
-	delete = this->head->deleteMe();
-	newHead = head->newNext();
-	ArrayNode<Type> * newNext = new ArrayNode<Type>();
+	Type removeThis;
+	ArrayNode<Type> * end
 
 
+}
 
+template<class Type>
+void CTECList<Type>::calculateSize()
+{
+	assert(size >= 0);
+
+	int count = 0;
+	if(head == nullptr)
+	{
+		size = 0;
+	}
+	else
+	{
+		count++;
+		ArrayNode<Type> * current = head;
+		while(current->getNext() != nullptr)
+		{
+			count++;
+			current = current->getNext();
+		}
+		size = count;
+	}
 
 
 }
