@@ -23,6 +23,46 @@ CTECList<Type>::~CTECList()
 }
 
 template<class Type>
+void CTECList<Type>::addToEnd(const Type& value)
+{
+	assert(size > 0);
+	assert(index > 0);
+	assert(index < size);
+
+	ArrayNode<Type> newEnd = new ArrayNode<Type>(value);
+	ArrayNode<Type> * currentSpot = end;
+	ArrayNode<Type> * newNext = newEnd;
+
+	currentSpot->setNext(newNext);
+	newNext->setNext(nullptr);
+
+
+
+}
+
+template<class Type>
+void CTECList<Type>::addToFront(const Type& value)
+{
+
+	ArrayNode<Type> * current = head;
+	ArrayNode<Type> * newFirst = new ArrayNode<Type>(value);
+
+	newFirst->setNext(current);
+	head = newFirst;
+}
+
+template<class Type>
+Type CTECList<Type>::removeFromIndex()
+{
+	Type returnValue;
+
+	assert(size > 0);
+	assert(index >= 0);
+	assert(index < size);
+	assert(size > 0 && index >= 0 && index < size);
+}
+
+template<class Type>
 Type CTECList<Type>::removeFromFront()
 {
 	//Check that not removing from any empty list
@@ -43,22 +83,50 @@ Type CTECList<Type>::removeFromFront()
 	return thingToRemove;
 }
 
-
-
 template<class Type>
 Type CTECList<Type>::removeFromBack()
 {
-
 	assert(size > 0);
-	Type removeThis;
-	ArrayNode<Type> * newEnd = new ArrayNode<Type>();
-	newEnd = end->getPrevious();
-	removeThis = this->end->getValue();
-	delete end;
-	end = newEnd;
+	Type returnValue;
 
-	return removeThis;
+	if(size == 1)
+	{
+		ArrayNode<Type> * toRemove = end;
+		returnValue = removeFromFront();
+		end = nullptr;
+		head = nullptr;
+		delete toRemove;
 
+	}
+	else
+	{
+		ArrayNode<Type> * current = head;
+		for(int index = 0; index < size - 1; index++)
+		{
+			current = current->getNext();
+		}
+
+		returnValue = end->getValue();
+		delete end;
+		current = end;
+		current->setNext(nullptr);
+	}
+
+	calculateSize();
+
+	return returnValue;
+
+
+
+	//assert(size > 0);
+	//Type removeThis;
+	//ArrayNode<Type> * newEnd = new ArrayNode<Type>();
+	//newEnd = end->getPrevious();
+	//removeThis = this->end->getValue();
+	//delete end;
+	//end = newEnd;
+
+	//return removeThis;
 
 
 }

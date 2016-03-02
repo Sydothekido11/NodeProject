@@ -15,7 +15,7 @@ CTECArray<Type>::CTECArray(int size)
 {
 	this->size = size;
 	this->size = size;
-		this->head = nullptr;
+	this->head = nullptr;
 		//defensive code
 		if(size <= 0 )
 		{
