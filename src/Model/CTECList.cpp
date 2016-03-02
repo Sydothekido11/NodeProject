@@ -43,6 +43,26 @@ Type CTECList<Type>::removeFromFront()
 	return thingToRemove;
 }
 
+
+
+template<class Type>
+Type CTECList<Type>::removeFromBack()
+{
+
+	assert(size > 0);
+	Type removeThis;
+	ArrayNode<Type> * newEnd = new ArrayNode<Type>();
+	newEnd = end->getPrevious();
+	removeThis = this->end->getValue();
+	delete end;
+	end = newEnd;
+
+	return removeThis;
+
+
+
+}
+
 template<class Type>
 Type CTECList<Type>::removeFromPosition(int index)
 {
@@ -73,17 +93,6 @@ Type CTECList<Type>::removeFromPosition(int index)
 
 	previousSpot->setNext(newNext);
 	return storedValue;
-
-
-}
-
-template<class Type>
-Type CTECList<Type>::removeFromBack()
-{
-
-	assert(size > 0);
-	Type removeThis;
-	ArrayNode<Type> * end
 
 
 }
