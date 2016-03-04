@@ -23,6 +23,37 @@ CTECList<Type>::~CTECList()
 }
 
 template<class Type>
+void CTECList<Type>::addAtIndex(int index, const Type& value)
+{
+	assert(size > 0);
+	assert(index > 0);
+	assert(index < size);
+
+	ArrayNode<Type> * currentSpot = head;
+	ArrayNode<Type> * nextSpot;
+	ArrayNode<Type> * newNext;
+	ArrayNode<Type> * newNode = new ArrayNode<Type>(value);
+
+	for(int spot = 0; spot < index + 1; index++)
+	{
+		if(spot == index)
+		{
+			newNext = newNode;
+			currentSpot = spot;
+			currentSpot->setNext(newNext);
+			newNext->setNext(nextSpot);
+		}
+
+		if(spot == index +1)
+		{
+			nextSpot = spot;
+		}
+
+		currentSpot = currentSpot->getNext();
+	}
+}
+
+template<class Type>
 void CTECList<Type>::addToEnd(const Type& value)
 {
 	assert(size > 0);
@@ -115,18 +146,6 @@ Type CTECList<Type>::removeFromBack()
 	calculateSize();
 
 	return returnValue;
-
-
-
-	//assert(size > 0);
-	//Type removeThis;
-	//ArrayNode<Type> * newEnd = new ArrayNode<Type>();
-	//newEnd = end->getPrevious();
-	//removeThis = this->end->getValue();
-	//delete end;
-	//end = newEnd;
-
-	//return removeThis;
 
 
 }
