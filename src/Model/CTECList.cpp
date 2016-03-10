@@ -20,6 +20,31 @@ template<class Type>
 CTECList<Type>::~CTECList()
 {
 
+	ArrayNode<Type> * current = head;
+	for(int deleteCount = 0; deleteCount < size; deleteCount++)
+	{
+		ArrayNode<Type> * temp = current;
+
+		current = current->getNext();
+		head = current;
+		delete temp;
+
+	}
+
+	while(current->getNext() != nullptr)
+	{
+		ArrayNode<Type> * temp = current;
+
+		current = current->getNext();
+		head = current;
+		delete temp;
+
+	}
+
+	delete head;
+	head = nullptr;
+	end = nullptr;
+	size = 0;
 }
 
 template<class Type>
