@@ -21,7 +21,9 @@ class NodeController
 {
 private:
 	CTECArray<int> * notHipsterInts;
+	CTECList<int> * numbers;
 	Timer arrayTimer;
+	void testList();
 public:
 	NodeController();
 	virtual ~NodeController();
