@@ -115,7 +115,7 @@ int CTECArray<Type>::indexOf(Type searchValue)
     ArrayNode<Type> * current = head;
     int indexNotFound = -1;
     
-    for(int index = 0; index < this->size; index;)
+    for(int index = 0; index < this->size; index++)
     {
         if(current->getValue == searchValue)
         {
