@@ -20,6 +20,7 @@ private:
 public:
 	CTECList();
 	virtual ~CTECList();
+    int getSize();
 	void addAtIndex(int index, const Type& value);
 	void addToFront(const Type& value);
 	void addToEnd(const Type& value);
@@ -31,6 +32,7 @@ public:
 	Type getFront();
 	Type getFromIndex(int index);
 	Type set(int index, const Type& value);
+    int indexOf(Type searchValue);
 };
 
 
