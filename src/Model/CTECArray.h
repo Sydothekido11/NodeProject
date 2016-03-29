@@ -24,6 +24,7 @@ public:
 	void set(int position,const Type& value);
 	Type get(int position);
 	int indexOf(Type searchValue);
+    void selectionSort();
 
 };
 

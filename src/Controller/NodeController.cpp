@@ -64,4 +64,9 @@ void NodeController :: start()
 
 }
 
+void NodeController :: sortData()
+{
+    
+}
+
 
