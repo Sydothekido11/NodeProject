@@ -34,6 +34,7 @@ public:
 	Type getFromIndex(int index);
 	Type set(int index, const Type& value);
     int indexOf(Type searchValue);
+    void selectionSort();
 };
 
 

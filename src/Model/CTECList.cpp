@@ -264,5 +264,27 @@ void CTECList<Type>::swap(int indexOne, int indexTwo)
     set(indexTwo, temp);
 }
 
+template<class Type>
+void CTECList :: selectionSort()
+{
+    for(int outerLoop = 0; outerLoop < size-1; outerLoop++)
+    {
+        int selectedMinimum = outerLoop;
+        
+        for(int innerLoop = outerLoop+1; innerLoop < size; innerLoop++)
+        {
+         
+            if(getFromIndex(innerLoop) < getFromIndex(selectedMinimum))
+            {
+                selectedMinimum = innerLoop;
+            }
+        }
+        
+        if(selectedMinimum != outerLoop)
+        {
+            swap(selectedMinimum, outerLoop);
+        }
+    }
+}
 
 
