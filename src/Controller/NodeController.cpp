@@ -24,10 +24,10 @@ NodeController::~NodeController()
 
 void NodeController :: testList()
 {
-    numbers->addAtIndex(1,188);
-	numbers->addToFront(3);
+    numbers->addToFront(3);
 	numbers->addToEnd(8);
-    
+    numbers->addAtIndex(1,188);
+
 	cout << "End should be 8 and is: " << numbers->getEnd() << endl;
     cout << "Front should be 3 and is: " << numbers->getFront() << endl;
     cout << "The middle should be 188 and is" << numbers->getFromIndex(2);

@@ -254,3 +254,15 @@ int CTECList<Type> :: indexOf(Type searchValue)
     index = -1;
     return index;
 }
+
+template<class Type>
+void CTECList<Type>::swap(int indexOne, int indexTwo)
+{
+    assert(indexOne < size && indexTwo < size);
+    Type temp = getFromIndex(indexOne);
+    set(indexOne, getFromIndex(indexTwo));
+    set(indexTwo, temp);
+}
+
+
+
