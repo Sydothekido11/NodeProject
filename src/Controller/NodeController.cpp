@@ -7,6 +7,7 @@
 
 #include "NodeController.h"
 #include "../Model/Timer.h"
+#include <stdlib.h> //Allows access to rand() function for random #'s and gives a random #.
 
 
 
@@ -66,6 +67,40 @@ void NodeController :: start()
 
 void NodeController :: sortData()
 {
+ 
+    /*
+     Creat a CTECList, CTECArray
+     Fill them with random stuff(random)
+     Start a timer, sort, stop timer, display info for a List.
+     Start a timer, sort, stop timer, display info for Array.
+     */
+    CTECArray<int> randomNumberArray(5000);
+    CTECList<int> randomNumberList;
+    int myCPlusPlusArray[5000];
+    
+    for(int spot = 0; spot < 5000; spot++)
+    {
+        int myRandom = rand();
+        randomNumberArray.set(spot, myRandom);
+        randomNumberList.addToEnd(myRandom);
+        myCPlusPlusArray[spot] = myRandom;
+        
+    }
+    
+    Timer sortTimer;
+    sortTimer.start();
+    randomNumberArray.selectionSort();
+    sortTimer.stopTimer();
+    sortTimer.displayTimerInformation();
+    
+    sortTimer.resetTimer();
+    
+    sortTimer.startTimer();
+    std::sort(std::begin(myCPlusPlusArray), std::end(myCPlusPlusArray));
+    sortTimer.stopTimer();
+    sortTimer.displayTimerInformation();
+    
+    sortTimer.resetTimer();
     
 }
 
