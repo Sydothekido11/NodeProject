@@ -31,6 +31,11 @@ private:
     int partition(int first, int last);
     void doQuick();
     
+    int + mergeData;
+    void doMergesort();
+    void mergesort(int data [], int size);
+    void merge(int data [], int sizeOne, int sizeTwo);
+    
     
 public:
 	NodeController();
