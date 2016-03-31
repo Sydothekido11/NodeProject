@@ -49,6 +49,7 @@ void NodeController :: testList()
 }
 void NodeController :: start()
 {
+    doMergesort();
     
 //	arrayTimer.startTimer();
 //	for(int index = 0; index < notHipsterInts->getSize(); index++)
